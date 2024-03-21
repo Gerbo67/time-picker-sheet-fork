@@ -1,3 +1,2 @@
-## [0.0.2+1] - 18th Nov 2021
-- Fixing broken image on documentation
-- Fixing flutter format
+## [0.0.4] - 21st March 2024
+- Add style button for save button

@@ -27,9 +27,9 @@ class TimePickerProvider extends InheritedWidget {
 
   final TextStyle wheelNumberSelectedStyle;
 
-  final Color saveButtonColor;
+  final ButtonStyle? saveButtonStyle;
 
-  final String saveButtonText;
+  final Widget saveButtonWidget;
 
   final bool twoDigit;
 
@@ -45,8 +45,8 @@ class TimePickerProvider extends InheritedWidget {
     required this.hourTitleStyle,
     required this.wheelNumberItemStyle,
     required this.wheelNumberSelectedStyle,
-    required this.saveButtonText,
-    required this.saveButtonColor,
+    required this.saveButtonStyle,
+    required this.saveButtonWidget,
     required this.twoDigit,
     required Widget child,
   }) : super(key: key, child: child);

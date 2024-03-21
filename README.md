@@ -3,6 +3,11 @@ A Time picker sheet library for flutter. You can also customize the widget insid
 
 <img src="https://raw.githubusercontent.com/yoktavian/time-picker-sheet/master/screenshot/simulator.png" style="width: 40%"/></br></br>
 
+# 🚨 New Features 🚨
+
+- **saveButtonText** has been changed to **saveButtonWidget**, so you can customize the save button widget as you want.
+- **saveButtonColor** has been changed to **saveButtonStyle**, so you can customize the save button style as you want.
+
 # How to use
 This is really simple and to the point actually, simply by doing this then your time picker sheet will goes up.
 ```dart
@@ -12,7 +17,7 @@ TimePicker.show(
         sheetTitle: 'Set meeting schedule',
         hourTitle: 'Hour',
         minuteTitle: 'Minute',
-        saveButtonText: 'Save',
+        saveButtonWidget: Text('Save', style: TextStyle(color: Colors.white)),
     ),
 );
 ```
@@ -25,7 +30,7 @@ final result = await TimePicker.show<DateTime?>(
         sheetTitle: 'Set meeting schedule',
         hourTitle: 'Hour',
         minuteTitle: 'Minute',
-        saveButtonText: 'Save',
+        saveButtonWidget: Text('Save', style: TextStyle(color: Colors.white)),
     ),
 );
 
@@ -41,7 +46,7 @@ What you can customize?
 - Title hour including the style
 - Title minute including the style
 - Selected hour & minute including the style
-- Save button color & text
+- Save button widget & button style
 - 1 or 2 digit format
   - the default format is 2 digit
 - Hour interval with min & max value

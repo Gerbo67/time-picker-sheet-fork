@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:time_picker_sheet/widget/composition/wheel.dart';
-import 'package:time_picker_sheet/widget/provider/time_picker.dart';
+import 'package:time_picker_sheet_fork/widget/composition/wheel.dart';
+import 'package:time_picker_sheet_fork/widget/provider/time_picker.dart';
 
 /// For now time picker only support 24 hour. The hour options will be
 /// start from 0 to 23 when the interval is 1 and when you are not setting up
@@ -153,22 +153,22 @@ class _TimePickerBodyState extends State<TimePickerBody> {
           children: [
             Expanded(
               child: SizedBox(
+                height: 20,
                 child: Text(
                   provider.hourTitle,
                   style: provider.hourTitleStyle,
                   textAlign: TextAlign.center,
                 ),
-                height: 20,
               ),
             ),
             Expanded(
               child: SizedBox(
+                height: 20,
                 child: Text(
                   provider.minuteTitle,
                   style: provider.minuteTitleStyle,
                   textAlign: TextAlign.center,
                 ),
-                height: 20,
               ),
             ),
           ],
@@ -178,6 +178,7 @@ class _TimePickerBodyState extends State<TimePickerBody> {
           children: [
             Expanded(
               child: SizedBox(
+                height: widget.itemHeight * 3,
                 child: NumberWheel(
                   numbers: _getHours(),
                   itemHeight: widget.itemHeight,
@@ -185,14 +186,11 @@ class _TimePickerBodyState extends State<TimePickerBody> {
                   twoDigits: provider.twoDigit,
                   controller: hourController,
                 ),
-
-                /// show only 3 items in the list as an options.
-                /// the selected option should be on the middle of the list.
-                height: widget.itemHeight * 3,
               ),
             ),
             Expanded(
               child: SizedBox(
+                height: widget.itemHeight * 3,
                 child: NumberWheel(
                   numbers: _getMinutes(),
                   itemHeight: widget.itemHeight,
@@ -200,10 +198,6 @@ class _TimePickerBodyState extends State<TimePickerBody> {
                   twoDigits: provider.twoDigit,
                   controller: minuteController,
                 ),
-
-                /// show only 3 items in the list as an options.
-                /// the selected option should be on the middle of the list.
-                height: widget.itemHeight * 3,
               ),
             ),
           ],
@@ -214,14 +208,9 @@ class _TimePickerBodyState extends State<TimePickerBody> {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text(provider.saveButtonText),
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                primary: provider.saveButtonColor,
-              ), // <-- Radius
+              style: provider.saveButtonStyle,
               onPressed: () => _onSaved(context),
+              child: provider.saveButtonWidget,
             ),
           ),
         ),

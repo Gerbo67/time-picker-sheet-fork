@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:time_picker_sheet/widget/composition/body.dart';
-import 'package:time_picker_sheet/widget/composition/header.dart';
-import 'package:time_picker_sheet/widget/composition/indicator.dart';
-import 'package:time_picker_sheet/widget/provider/time_picker.dart';
-import 'package:time_picker_sheet/widget/time_picker.dart';
+import 'package:time_picker_sheet_fork/widget/composition/body.dart';
+import 'package:time_picker_sheet_fork/widget/composition/header.dart';
+import 'package:time_picker_sheet_fork/widget/composition/indicator.dart';
+import 'package:time_picker_sheet_fork/widget/provider/time_picker.dart';
+import 'package:time_picker_sheet_fork/widget/time_picker.dart';
 
 /// Using date time format to initialize data and also for the final result.
 /// the sheet only care about the hour and minute values, the other will be
@@ -70,9 +70,9 @@ class TimePickerSheet extends TimePicker {
 
   final TextStyle wheelNumberSelectedStyle;
 
-  final String saveButtonText;
+  final ButtonStyle? saveButtonStyle;
 
-  final Color saveButtonColor;
+  final Widget saveButtonWidget;
 
   late final _now = DateTime.now();
 
@@ -91,7 +91,7 @@ class TimePickerSheet extends TimePicker {
     required this.sheetTitle,
     required this.minuteTitle,
     required this.hourTitle,
-    required this.saveButtonText,
+    required this.saveButtonWidget,
     this.initialDateTime,
     this.minuteInterval = 15,
     this.hourInterval = 1,
@@ -102,7 +102,7 @@ class TimePickerSheet extends TimePicker {
     this.twoDigit = true,
     this.sheetCloseIcon = Icons.close,
     this.sheetCloseIconColor = Colors.redAccent,
-    this.saveButtonColor = Colors.redAccent,
+    this.saveButtonStyle,
     this.sheetTitleStyle = const TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 16,
@@ -146,8 +146,8 @@ class TimePickerSheet extends TimePicker {
       hourTitleStyle: hourTitleStyle,
       wheelNumberItemStyle: wheelNumberItemStyle,
       wheelNumberSelectedStyle: wheelNumberSelectedStyle,
-      saveButtonText: saveButtonText,
-      saveButtonColor: saveButtonColor,
+      saveButtonStyle: saveButtonStyle,
+      saveButtonWidget: saveButtonWidget,
       twoDigit: twoDigit,
       child: SizedBox(
         height: halfOfScreen,
